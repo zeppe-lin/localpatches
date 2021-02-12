@@ -1,6 +1,7 @@
---- menu.c	2019-12-21 08:43:47.705736400 +0200
-+++ menu.c	2021-01-06 17:06:55.670606176 +0200
-@@ -611,7 +611,7 @@
+diff '--color=always' '--color=never' -pruN hexchat-2.14.3/src/fe-gtk/menu.c hexchat-2.14.3.new/src/fe-gtk/menu.c
+--- hexchat-2.14.3/src/fe-gtk/menu.c	2019-12-21 08:43:47.705736400 +0200
++++ hexchat-2.14.3.new/src/fe-gtk/menu.c	2021-02-12 10:33:26.745061758 +0200
+@@ -611,7 +611,7 @@ menu_create_nickinfo_menu (struct User *
  	GtkWidget *item;
  
  	/* let the translators tweak this if need be */
