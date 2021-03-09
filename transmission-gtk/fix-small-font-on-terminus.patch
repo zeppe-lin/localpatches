@@ -1,0 +1,45 @@
+diff '--color=always' -pruN '--color=never' transmission-3.00.orig/gtk/details.c transmission-3.00/gtk/details.c
+--- transmission-3.00.orig/gtk/details.c	2021-03-09 21:23:41.391319963 +0200
++++ transmission-3.00/gtk/details.c	2021-03-09 21:24:42.198318380 +0200
+@@ -2189,7 +2189,7 @@ static void buildTrackerSummary(GString*
+         case TR_TRACKER_ACTIVE:
+             tr_strltime_rounded(timebuf, now - st->lastAnnounceStartTime, sizeof(timebuf));
+             g_string_append_c(gstr, '\n');
+-            g_string_append_printf(gstr, _("Asking for more peers now… <small>%s</small>"), timebuf);
++            g_string_append_printf(gstr, _("Asking for more peers now… %s"), timebuf);
+             break;
+         }
+ 
+@@ -2231,7 +2231,7 @@ static void buildTrackerSummary(GString*
+             case TR_TRACKER_ACTIVE:
+                 g_string_append_c(gstr, '\n');
+                 tr_strltime_rounded(timebuf, now - st->lastScrapeStartTime, sizeof(timebuf));
+-                g_string_append_printf(gstr, _("Asking for peer counts now… <small>%s</small>"), timebuf);
++                g_string_append_printf(gstr, _("Asking for peer counts now… %s"), timebuf);
+                 break;
+             }
+         }
+diff '--color=always' -pruN '--color=never' transmission-3.00.orig/gtk/file-list.c transmission-3.00/gtk/file-list.c
+--- transmission-3.00.orig/gtk/file-list.c	2021-03-09 21:23:41.393319963 +0200
++++ transmission-3.00/gtk/file-list.c	2021-03-09 21:28:31.771312407 +0200
+@@ -944,7 +944,7 @@ GtkWidget* gtr_file_list_new(TrCore* cor
+     pango_context = gtk_widget_create_pango_context(view);
+     pango_font_description = pango_font_description_copy(pango_context_get_font_description(pango_context));
+     size = pango_font_description_get_size(pango_font_description);
+-    pango_font_description_set_size(pango_font_description, size * 0.8);
++    //pango_font_description_set_size(pango_font_description, size * 0.8);
+     g_object_unref(G_OBJECT(pango_context));
+ 
+     /* set up view */
+diff '--color=always' -pruN '--color=never' transmission-3.00.orig/gtk/tr-prefs.c transmission-3.00/gtk/tr-prefs.c
+--- transmission-3.00.orig/gtk/tr-prefs.c	2021-03-09 21:23:41.391319963 +0200
++++ transmission-3.00/gtk/tr-prefs.c	2021-03-09 21:27:34.568313895 +0200
+@@ -1000,7 +1000,7 @@ static GtkWidget* speedPage(GObject* cor
+     hig_workarea_add_section_title_widget(t, &row, h);
+ 
+     s = _("Override normal speed limits manually or at scheduled times");
+-    g_snprintf(buf, sizeof(buf), "<small>%s</small>", s);
++    g_snprintf(buf, sizeof(buf), "%s", s);
+     w = gtk_label_new(buf);
+     gtk_label_set_use_markup(GTK_LABEL(w), TRUE);
+     g_object_set(w, "halign", GTK_ALIGN_START, "valign", GTK_ALIGN_CENTER, NULL);
